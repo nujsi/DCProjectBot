@@ -1,26 +1,28 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class Command(ABC):
     """
-    Klasse Command ist eine abstrakte Klasse, die Funktionen für alle Klassen, die
-    von Commman erben, vorgibt. Somit kann eine neue Klasse, die von Command
+    Klasse Command ist eine abstrakte Klasse, die Methoden für alle Klassen, die
+    von Commmand erben, vorgibt. Somit kann eine neue Klasse, die von Command
     erbt, genutzt werden, um mit den definierten Parametern zu arbeiten.
 
     Beispielsweise kann durch eine Instanz der erbenden Klasse auf den Command an sich zugegriffen werden
     oder die Funktion execute ausführen, in der dann für den bestimmten Command genauer festgelegt ist, was der Command
     tun soll.
 
-    Bsp: Instanz des CommandManagers, der alle Commands im Konstruktor (__init__) addet.
+    Bsp: Instanz des CommandManagers, der alle Commands im Konstruktor (__init__) zu einer Liste addet.
 
         cmd_manager = CommandManager(command_prefix)
 
         Wenn man nun durch alle Commands (alle Klassen, die von Command erben) iteriert, dann kann man für
-        jede Klasse die Funktionen ausführen, weil diese von Command vorgegeben sind.
+        jede Klasse die Methoden ausführen, weil diese von Command vorgegeben sind.
 
         for i in cmd_manager.get_command_array():
 
             i.execute()
+
+        Mehr dazu: command_manager.py
 
     """
 

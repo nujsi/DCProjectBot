@@ -1,5 +1,5 @@
-from DCProjectBot.CommandHandeling.Command import Command
-from discord import utils, Member, Embed, Guild
+from DCProjectBot.CommandHandeling.command import Command
+from discord import utils, Member, Embed
 
 
 class ProjectCommand(Command):

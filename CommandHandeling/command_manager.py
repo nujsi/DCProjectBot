@@ -1,4 +1,4 @@
-from DCProjectBot.CommandHandeling.CommandTypes.ProjectCommand import ProjectCommand
+from DCProjectBot.CommandHandeling.CommandTypes.project_command import ProjectCommand
 
 
 class CommandManager():
@@ -32,18 +32,23 @@ class CommandManager():
     async def check_message(self, **kwargs):
 
         """
-        Die Funnktion wird aufgerufen, wenn im Chat eine neue Nachricht aufkommt, die noch nicht geprüft wurde.
-        Als Parameter wird ein Dict übergeben, das die Nachricht und Details zu dieser beinhaltet
+        Methode durchläuft alle in der Liste vorhandenen Klassen, die von Command erben und somit
+        als Command dienen sollen.
 
-        Sie soll die Nachricht durchsuchen und gucken, ob diese mit dem festgelegten Alias anfängt.
-        Wenn dies zutrifft, werden der Command und die Command-Details in einer Var gespeichert.
+        Als Parameter wird ein Dict übergeben, das die Nachricht als Objekt und Details zu dieser beinhaltet.
 
-        Nun kann das Array aller von Command erbenden Klassen durchlaufen werden und für jedn Durchlauf
-        die Funktion execute() aufgerufen werden, nachdem siichergestellt wurde, dass der Command exiistiert.
+        check_message soll die Nachricht durchsuchen und gucken, ob diese mit dem festgelegten Prefix anfängt.
+        Wenn dies zutrifft, wird überprüft, ob der Command der jeweiligen Klasse aus der Liste, durch die iteriert wird,
+        gleich dem command ist, der im Chat geschrieben wurde, also dem Teil nach dem Nachrichten-Prefix: bei !kill, ist
+        der Command kill.
+        Wenn ja, dann handelt es sich eindeutig um einen Command und für diesen kann die Methode execute() aufgerufen werden,
+        in der festgelegt ist, was der Command machen soll.
 
         Nach erfolgreichem Ausführen des Commands wird dessen Rückgabewert (ein Tupel) genommen, um zu entscheiden,
-        ob die Nachricht in den DCChat gelangen soll. Wenn dabei der erste Teil des Tupels True ist, wird die
-        Nachricht der Rückgabewert der Methode, die diese Methode aufgerufen hat, sein.
+        ob die Nachricht in den Chat gelangen soll. Wenn dabei der erste Teil des Tupels (send_response_to_chat_bool) True
+        ist, wird die Nachricht dem Tupel (response_tuple[1]) entnommen und zurückgegeben.
+
+        -> project_bot.py Falls diese Nachricht kein "" ist, wird sie im Chat erscheinen.
 
         :param kwargs:
         :return:

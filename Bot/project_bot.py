@@ -1,5 +1,5 @@
 from discord import Client
-from DCProjectBot.CommandHandeling.CommandManager import CommandManager
+from DCProjectBot.CommandHandeling.command_manager import CommandManager
 
 
 class ProjectBot(Client):
