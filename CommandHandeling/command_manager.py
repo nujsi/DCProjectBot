@@ -1,7 +1,7 @@
-from DCProjectBot.CommandHandeling.CommandTypes.project_command import ProjectCommand
+from CommandHandeling.CommandTypes.project_command import ProjectCommand
 
 
-class CommandManager():
+class CommandManager:
 
     def __init__(self, command_prefix):
 

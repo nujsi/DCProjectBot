@@ -1,4 +1,4 @@
-from DCProjectBot.CommandHandeling.command import Command
+from CommandHandeling.command import Command
 from discord import utils, Member, Embed
 
 
