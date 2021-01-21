@@ -1,8 +1,8 @@
-from discord import Member, Client, utils, guild, TextChannel
-from abc import ABC
+from discord import Client
 from DCProjectBot.CommandHandeling.CommandManager import CommandManager
 
-class ProjectDiscordBot(Client):
+
+class ProjectBot(Client):
 
     def __init__(self, command_prefix, **options):
 
@@ -37,14 +37,12 @@ class ProjectDiscordBot(Client):
             response_msg = await self.cm_manager.check_message(message_obj=message, message_content=message_content)
 
             if response_msg:
-
                 await message.channel.send(response_msg)
 
 
 if __name__ == '__main__':
 
-    token = "HAHA, haste wohl gehofft... :§"
+    token = "haha, hast du wohl gedacht.. :§"
 
-    dc_bot = ProjectDiscordBot("!")
-    dc_bot.run(token)
-
+    bot = ProjectBot("!")
+    bot.run(token)
