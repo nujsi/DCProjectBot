@@ -11,7 +11,7 @@ class CommandManager:
 
     def add_commands_to_command_array(self):
 
-        self.add_command(ProjectCommand(self.command_prefix, "project", "Ermöglich es, einen Projekt-Channel zu erstellen, für die jede Miglieder und Interessenten Rollen erhalten können."))
+        self.add_command(ProjectCommand(self.command_prefix, "project", "Ermöglich es, einen Projekt-Channel zu erstellen, dessen Name jeder Interessent sich als Rolle hinzufügen kann, um dann innerhalb des Channels mit der Rolle getaggt werden zu können."))
 
     def add_command(self, command):
 
